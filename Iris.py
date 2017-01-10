@@ -50,6 +50,7 @@ for name,model in models:
     msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
     print msg
 
+
 knn = KNeighborsClassifier()
 knn.fit(X_train,Y_train)
 predictions = knn.predict(X_validation)
