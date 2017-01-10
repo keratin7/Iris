@@ -51,3 +51,21 @@ for name,model in models:
     print msg
 
 
+knn = KNeighborsClassifier()
+knn.fit(X_train,Y_train)
+predictions = knn.predict(X_validation)
+print accuracy_score(Y_validation,predictions)
+print confusion_matrix(Y_validation, predictions)
+print classification_report(Y_validation,predictions)
+
+svm = SVC()
+svm.fit(X_train,Y_train)
+prediction1 = svm.predict(X_validation)
+print accuracy_score(Y_validation,prediction1)
+print confusion_matrix(Y_validation, prediction1)
+print classification_report(Y_validation,prediction1)
+
+res = cross_val_score(svm, X_train, Y_train, cv=kfold, scoring=scoring)
+print res
+
+
